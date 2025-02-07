@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --gray: #343A40;
+  --white: #ffffff;
+  --purple: #7749F8;
+  --bgColor: #F8F9FA;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    background-color: var(--bgColor);
+}
+
+a {
+    text-decoration: none;
+}
+
+.cusBtn {
+    padding: 1rem 1.6rem;
+    background: var(--purple);
+    color: var(--white);
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    border-radius: 6px;
+    border: 1px solid var(--purple);
+}
+
+
+/* ======================
+    Custom Css Start
+=========================*/
+
+header {
+    background: var(--purple);
+}
+header h1 {
+    font-size: 2.3rem;
+    line-height: 2.7rem;
+    color: var(--white);
+}
+.breadcrumb {
+    padding: 32px 0;
+    background: var(--white);
+}
+.breadcrumb h1 {
+    font-size: 4rem;
+    line-height: 4.8rem;
+    color: var(--gray);
+    font-weight: 700;
+    margin: 0;
+}
+.register_form, .login_form {
+    width: 30vw;
+    background: var(--white);
+    padding: 6rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.forms .form-control {    
+    height: 38px;    
+    border-radius: 6px;    
+    border: 1px solid rgba(222, 226, 230, 1);    
+    font-size: 1.6rem;    
+    line-height: 2.8rem; 
+    font-weight: 400;  
+    color: #ADB5BD;
+    margin-bottom: 20px;
+    padding: 0 1.2rem;
+}
+.forms .form-control::placeholder {
+    color: #ADB5BD;
+}
+.forms .form-control:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgb(119 73 248 / 20%);
+}
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: #000;
+    position: absolute;
+}
