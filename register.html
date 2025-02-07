@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Blog App</title>
+</head>
+<body>
+    <div class="divPage">
+        <section class="secRegister">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-12">
+                        <div class="register_form">
+                            <h2>Register</h2>
+                            <form id="register">
+                                <input type="text" name="" placeholder="Enter your Full Name" class="reg_fullname"/>
+                                <input type="email" name="" placeholder="Email Address" class="reg_email"/>
+                                <input type="password" name="" placeholder="Create Password" class="reg_password"/>
+                                <input type="file" class="form-control" class="reg_uploadImage" 
+                                required>
+                                <button type="submit">Register</button>
+                                <p class="signup">Already have an account ? <a href="./login.html" class="sign_btn">Sign in.</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript">
+    </script>
+    <script type="module" src="assets/js/register.js"></script>
+</body>
+</html>
