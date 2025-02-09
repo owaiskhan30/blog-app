@@ -94,3 +94,9 @@ header h1 {
     background: #000;
     position: absolute;
 }
+.userName {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: var(--white);
+    opacity: 0.7;
+}
