@@ -37,15 +37,11 @@ dashboard_form.addEventListener("submit", async (event) => {
       } catch (e) {
         console.error("Error adding document: ", e);
       }
-})
-
-
-
-
+});
 
 async function getDataFromFirestore() {
     let user = null
-    const q = query(collection(db, "blogs"), where("uid", "==", auth.currentUser.uid));
+    const q = query(collection(db, "users"), where("uid", "==", auth.currentUser.uid));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
         user = doc.data()
