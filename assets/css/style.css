@@ -100,3 +100,22 @@ header h1 {
     color: var(--white);
     opacity: 0.7;
 }
+.dashboard_form {
+    width: 100vw;
+    background: var(--white);
+    padding: 6rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.12);
+    margin: 29px auto 45px auto !important;
+}
+.forms textarea.form-control {
+    height: 114px;
+    resize: none;
+}
+.secBlog h1 {
+    font-size: 2.8rem;
+    line-height: 3.3rem;
+    margin: 0;
+    font-weight: 700;
+    color: #152536;
+}
