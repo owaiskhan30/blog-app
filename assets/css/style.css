@@ -36,6 +36,7 @@ a {
     line-height: 1.8rem;
     border-radius: 6px;
     border: 1px solid var(--purple);
+    margin: 0;
 }
 
 
@@ -107,10 +108,51 @@ header h1 {
     border-radius: 5px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.12);
     margin: 29px auto 45px auto !important;
+    position: relative;
 }
 .forms textarea.form-control {
     height: 114px;
     resize: none;
+}
+.forms textarea.form-control::-webkit-scrollbar {
+  width: 5px;
+}
+.forms textarea.form-control::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+.forms textarea.form-control::-webkit-scrollbar-thumb {
+  background: var(--purple); 
+  border-radius: 10px;
+}
+.dashboard_form .preloader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dashboard_form .preloader .update_btn {
+    order: 1;
+}
+.dashboard_form .preloader svg {
+    width: 6%;
+    order: 1;
+}
+.blogCtn {
+    position: relative;
+}
+.blogCtn .preloader {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+.blogCtn .preloader svg {
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
 }
 .secBlog h1 {
     font-size: 2.8rem;
@@ -177,10 +219,16 @@ header h1 {
     position: relative;
 }
 .preloader svg {
-    position: absolute;
-    right: 25%;
-    top: 0;
     width: 10%;
     opacity: 0;
     visibility: hidden;
+}
+.sub_btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+p.errorMsg {
+    color: red;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }

@@ -2,6 +2,11 @@ import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/
 import { collection, getDocs, deleteDoc, updateDoc, doc, addDoc, query, where, Timestamp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
 import { auth, db } from "./firebaseconfig.js";
 
+
+
+const preloaderContent = document.querySelector(".blogCtn .preloader svg");
+const preloaderBtn = document.querySelector(".preloader");
+const preloader = document.querySelector(".preloader svg");
 let print_userName = document.querySelector(".userName");
 const logout_btn = document.querySelector(".logout_btn");
 const sub_btn = document.querySelector(".sub_btn");
@@ -51,7 +56,7 @@ function attachEventListeners(editBtn, delBtn) {
             console.log("Edit clicked for index:", index);
             post_title.value = postArr[index].title;
             post_description.value = postArr[index].description;
-            sub_btn.disabled = true;
+            sub_btn.classList.add("disabled");
 
             let existingUpdateBtn = document.querySelector(".update_btn");
             if (existingUpdateBtn) existingUpdateBtn.remove();
@@ -59,7 +64,7 @@ function attachEventListeners(editBtn, delBtn) {
             let updateBtn = document.createElement("button");
             updateBtn.className = "update_btn cusBtn";
             updateBtn.textContent = "Update blog";
-            dashboard_form.append(updateBtn);
+            preloaderBtn.prepend(updateBtn);
 
             updateBtn.addEventListener("click", async (event) => {
                 event.preventDefault();
@@ -69,6 +74,8 @@ function attachEventListeners(editBtn, delBtn) {
                 console.log(blogRef);
 
                 try {
+                    preloader.style.opacity = "1";
+                    preloader.style.visibility = "visible";
                     await updateDoc(blogRef, {
                         title: post_title.value,
                         description: post_description.value,
@@ -82,7 +89,9 @@ function attachEventListeners(editBtn, delBtn) {
                     post_title.value = "";
                     post_description.value = "";
                     updateBtn.style.display = "none";
-                    sub_btn.disabled = false;
+                    sub_btn.classList.remove("disabled");
+                    preloader.style.opacity = "0";
+                    preloader.style.visibility = "hidden";
                 } catch (error) {
                     console.error("Error updating blog:", error);
                 }
@@ -121,6 +130,8 @@ dashboard_form.addEventListener("submit", async (event) => {
     event.preventDefault();
     let users = await getDataFromFirestore();
     try {
+        preloader.style.opacity = "1";
+        preloader.style.visibility = "visible";
         const docRef = await addDoc(collection(db, "blogs"), {
             title: post_title.value,
             description: post_description.value,
@@ -133,6 +144,8 @@ dashboard_form.addEventListener("submit", async (event) => {
         getBlogs();
         post_title.value = "";
         post_description.value = "";
+        preloader.style.opacity = "0";
+        preloader.style.visibility = "hidden";
     } catch (e) {
         console.error("Error adding document:", e);
     }
@@ -160,6 +173,8 @@ async function getBlogs() {
     });
     console.log(postArr);
     render(postArr);
+    preloaderContent.style.opacity = "0";
+    preloaderContent.style.visibility = "hidden";
 }
 
 // Logout user
