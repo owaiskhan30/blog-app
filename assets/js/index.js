@@ -3,6 +3,7 @@ import { auth, db } from "./firebaseconfig.js";
 import { collection, getDocs, addDoc, query, where, Timestamp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
 
 // Select DOM Elements
+const preloaderContent = document.querySelector(".blogCtn .preloader svg");
 let print_userName = document.querySelector('.userName');
 const allBlogs = document.querySelector(".allBlogs");
 const logout_btn = document.querySelector(".logoutBtn .cusBtn a");
@@ -68,6 +69,8 @@ async function getblogDataFromFirestore() {
     });
     console.log(get_blogs);
     render(get_blogs);
+    preloaderContent.style.opacity = "0";
+    preloaderContent.style.visibility = "hidden";
 }
 
 // Fetch blogs initially
