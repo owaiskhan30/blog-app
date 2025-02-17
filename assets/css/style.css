@@ -173,3 +173,14 @@ header h1 {
     color: var(--purple);
     margin-right: 15px;
 }
+.preloader {
+    position: relative;
+}
+.preloader svg {
+    position: absolute;
+    right: 25%;
+    top: 0;
+    width: 10%;
+    opacity: 0;
+    visibility: hidden;
+}
